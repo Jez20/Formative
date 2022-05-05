@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>SignupController</servlet-name>
+        <servlet-class>Controller.SignupController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>Controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignupController</servlet-name>
+        <url-pattern>/SignupController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    
+<!--    <servlet>
+        <servlet-name>JdbcController</servlet-name>
+        <servlet-class>Controller.JdbcController</servlet-class>
+        
+        <init-param>
+            <param-name>jdbcClassName</param-name>
+            <param-value>org.apache.derby.jdbc.ClientDriver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbUserName</param-name>
+            <param-value>app</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPassword</param-name>
+            <param-value>app</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jdbcDriverURL</param-name>
+            <param-value>jdbc:derby</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbHostName</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPort</param-name>
+            <param-value>1527</param-value>
+        </init-param>
+        <init-param>
+            <param-name>databaseName</param-name>
+            <param-value>FriendsDB</param-value>
+        </init-param>
+                
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JdbcController</servlet-name>
+        <url-pattern>/JdbcController</url-pattern>
+    </servlet-mapping>-->
+    
+    <servlet>
+        <servlet-name>AudioCaptcha</servlet-name>
+        <servlet-class>nl.captcha.servlet.AudioCaptchaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SimpleCaptcha</servlet-name>
+        <servlet-class>nl.captcha.servlet.SimpleCaptchaServlet</servlet-class>
+        <init-param>
+            <param-name>captcha-width</param-name>
+            <param-value>300</param-value>
+        </init-param>
+        <init-param>
+            <param-name>captcha-height</param-name>
+            <param-value>100</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>StickyCaptcha</servlet-name>
+        <servlet-class>nl.captcha.servlet.StickyCaptchaServlet</servlet-class>
+        <init-param>
+            <!-- Optional; defaults to 200. -->
+            <param-name>captcha-width</param-name>
+            <param-value>250</param-value>
+        </init-param>
+        <init-param>
+            <!-- Optional; defaults to 50. -->
+            <param-name>captcha-height</param-name>
+            <param-value>75</param-value>
+        </init-param>
+        <init-param>
+            <!-- Time To Live, in ms. Optional; Defaults to 600000ms. -->
+            <param-name>ttl</param-name>
+            <param-value>100000</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AudioCaptcha</servlet-name>
+        <url-pattern>/audio.wav</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimpleCaptcha</servlet-name>
+        <url-pattern>/simpleCaptcha.png</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StickyCaptcha</servlet-name>
+        <url-pattern>/stickyCaptcha.png</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
